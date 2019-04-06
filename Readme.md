@@ -11,10 +11,11 @@ To build, run:
 This puts the build artifacts in their default project folder locations (`bin\Debug` and `bin\Release`).
 
 To place the artifacts in a custom folder, you can specify the `DebugOut` and / or `ReleaseOut` parameters:
-
-`powershell -File build.ps1 -DebugOut c:\debug`
-`powershell -File build.ps1 -ReleaseOut c:\release`
-`powershell -File build.ps1 -DebugOut c:\debug -ReleaseOut c:\release`
-
+```
+powershell -File build.ps1 -DebugOut c:\debug
+powershell -File build.ps1 -ReleaseOut c:\release
+powershell -File build.ps1 -DebugOut c:\debug -ReleaseOut c:\release
+```
 You can also deploy your artifacts to network paths:
+
 `powershell -File build.ps1 -DebugOut \\Integration\Debug`
