@@ -1,0 +1,1 @@
+Before building, edit build.ps1 and replace the path in the first line with your local path to MSBuild.exe
