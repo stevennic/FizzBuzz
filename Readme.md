@@ -1,10 +1,10 @@
-#Preparation
+# Preparation
 Follow these steps before building for the first time:
 
 1. Make sure you have Powershell
 2. Edit `build.ps1` and replace the path indicated by the `TODO` comment with your local path to `MSBuild.exe`
 
-#Build
+# Build
 To build, run:
 `powershell -File build.ps1`
 
