@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyCompany
 {
-    using Pairings = Dictionary<int, string>; //Dictionary Type alias
+    using Pairings = SortedDictionary<int, string>; //Dictionary Type alias
 
     class Program
     {

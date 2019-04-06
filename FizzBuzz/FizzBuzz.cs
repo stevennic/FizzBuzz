@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MyCompany
 {
-    using Pairings = Dictionary<int, string>; //Dictionary Type alias
+    using Pairings = SortedDictionary<int, string>; //Dictionary Type alias
 
     public class FizzBuzz
     {

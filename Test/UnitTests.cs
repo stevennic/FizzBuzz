@@ -7,7 +7,7 @@ using System.Text;
 
 namespace MyCompany
 {
-    using Pairings = Dictionary<int, string>; //Dictionary Type alias
+    using Pairings = SortedDictionary<int, string>; //Dictionary Type alias
 
     [TestFixture]
     public class UnitTest
@@ -33,11 +33,11 @@ namespace MyCompany
             return sb.ToString();
         }
 
-        private void PrintDictionary<TKey, TValue>(Dictionary<TKey, TValue> dict)
+        private void PrintDictionary(Pairings pairings)
         {
             // Prints a generic dictionary to Trace
             Trace.Indent();
-            foreach (KeyValuePair<TKey, TValue> kvp in dict)
+            foreach (KeyValuePair<int, string> kvp in pairings)
             {
                 Trace.WriteLine($"{kvp.Key.ToString(),5} : {kvp.Value.ToString()}");
             }
@@ -65,7 +65,6 @@ namespace MyCompany
 
             return pairings;
         }
-
         #endregion
 
         [Test]
@@ -122,7 +121,6 @@ namespace MyCompany
                     Assert.IsTrue(isInteger, $"Expected integer for #{index}. Got '{output}' instead.");
                     Assert.IsTrue(number == index, $"Expected {index}. Got '{output}' instead.");
                 }
-
                 index++;
             }
         }
