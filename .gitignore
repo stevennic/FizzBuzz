@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Test/obj
+/Test/bin
+/packages
+/FizzBuzz/obj
+/FizzBuzz/bin
+/App/obj
+/App/bin
+/.vs
