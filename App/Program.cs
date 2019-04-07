@@ -31,7 +31,7 @@ namespace MyCompany
                 Environment.Exit(-1);
             }
 
-            FizzBuzz fb = new FizzBuzz(new Pairings { [3] = "fizz", [5] = "buzz", [7] = "taco" });
+            FizzBuzz fb = new FizzBuzz(new Pairings { [3] = "Fizz", [5] = "Buzz", [7] = "Taco" });
             IEnumerable<string> fb1 = fb.GetFizzBuzz(limit);
 
             foreach (string s in fb1)

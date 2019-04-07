@@ -33,9 +33,9 @@ namespace MyCompany
             return sb.ToString();
         }
 
-        private void PrintDictionary(Pairings pairings)
+        private void PrintPairings(Pairings pairings)
         {
-            // Prints a generic dictionary to Trace
+            // Prints Pairings to Trace
             Trace.Indent();
             foreach (KeyValuePair<int, string> kvp in pairings)
             {
@@ -46,7 +46,7 @@ namespace MyCompany
 
         private Pairings GenerateRandomPairings(int numberOfPairingsMin = 1, int numberOfPairingsMax = 20, int denominatorMin = 1, int denominatorMax = 100)
         {
-            // Generates random pairings and test for their presence
+            // Generates random pairings
             // Numbers are not guaranteed to be unique, so final number will be <= numberOfPairingsMax
 
             int maxWordSize = 10;
@@ -61,7 +61,7 @@ namespace MyCompany
             }
 
             Trace.WriteLine("Testing with the following pairings:");
-            PrintDictionary(pairings);
+            PrintPairings(pairings);
 
             return pairings;
         }
@@ -114,7 +114,7 @@ namespace MyCompany
                     }
                 }
 
-                // If no pairing matched, test that output is a number
+                // If no pairing matched, test that output is a number and the correct one
                 if (!PairingMatch)
                 {
                     bool isInteger = int.TryParse(output, out int number);
@@ -156,5 +156,19 @@ namespace MyCompany
                 fb1.FirstOrDefault();
             });
         }
+
+        [Test]
+        public void TestInvalidPairingKey()
+        {
+            // Test pairing key < 1
+            Pairings WithInvalidKey = new Pairings(FizzBuzzExample);
+            WithInvalidKey[-5] = "Taco";
+            
+            Assert.Catch<ArgumentOutOfRangeException>(() =>
+            {
+                FizzBuzz fb = new FizzBuzz(WithInvalidKey);
+            });
+        }
+
     }
 }

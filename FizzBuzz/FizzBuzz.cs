@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace MyCompany
@@ -12,19 +13,26 @@ namespace MyCompany
 
         public FizzBuzz()
         {
-            // Assuming zero pairings is acceptable. Essentially makes it an integer generator.
+            // Zero pairings essentially makes it an integer generator.
             pairings = new Pairings();
         }
 
         public FizzBuzz(Pairings customPairings)
         {
+            var invalidKeys = customPairings.Keys.Where(key => key < 1);
+            if (invalidKeys.Count() > 0)
+            {
+                int firstInvalidKey = invalidKeys.First();
+                throw new ArgumentOutOfRangeException(nameof(customPairings), firstInvalidKey, $"Pairing keys must be positive integers.");
+            }
+
             pairings = customPairings;
         }
 
         public IEnumerable<string> GetFizzBuzz(int limit = 100)
         {
             if (limit < 1)
-                throw new ArgumentOutOfRangeException(nameof(limit), $"Limit must be >= 1. Found {limit}.");
+                throw new ArgumentOutOfRangeException(nameof(limit), limit, $"Limit must be >= 1.");
 
             for (int i = 1; i <= limit; i++)
             {
